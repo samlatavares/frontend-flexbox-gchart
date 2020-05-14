@@ -1,0 +1,176 @@
+﻿@{
+    ViewData["Title"] = "Desafio FrontEnd";
+}
+
+<html lang="pt-br">
+<head>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            $.get("@Url.Action("RetornaDados", "Home")", function (data, status) {
+                console.log(data);
+
+                var dataTable = new google.visualization.DataTable();
+                dataTable.addColumn('string', 'Data');
+                dataTable.addColumn('number', 'Metrica');
+
+                var i;
+                for (i = 0; i < data.length; i++) {
+                    dataTable.addRows([
+                        [data[i]["dataFormatada"], data[i]["diferenca"]]
+                    ]);
+                }
+
+                fillTable(data);
+
+                var options = {
+                                title: "Métricas de Atendimento"
+                              };
+
+                var chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
+                chart.draw(dataTable, options);
+              });
+        }
+
+        function fillTable(data) {
+            var tableRef = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+            var i;
+
+            for (i = 0; i < data.length; i++) {
+                var newRow = tableRef.insertRow(tableRef.rows.length);
+                newRow.innerHTML = `<td>${data[i]["dataFormatada"]}</td>
+                                    <td>${data[i]["demanda"]}</td>
+                                    <td>${data[i]["capacidade"]}</td>
+                                    <td>${data[i]["atendimentoPlanejado"]}</td>
+                                    <td>${data[i]["atendimentoRealizado"]}</td>
+                                    <td>${data[i]["desvio"]}</td>`
+            }
+
+            
+        }
+    </script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <title>Desafio FrontEnd</title>
+    <style type="text/css" media="screen">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        #main {
+            display: flex;
+            flex: 1;
+        }
+
+            #main > article {
+                flex: 1;
+            }
+
+            #main > nav {
+                flex: 0 0 15vw;
+                background: #f1f1f1;
+            }
+
+            #main > nav {
+                order: -1;
+            }
+
+        header, footer {
+            background: #484848;
+            height: 5vw;
+        }
+
+        footer, article, nav {
+            padding: 1em;
+        }
+
+        .a {
+            color: white;
+            font-family: arial;
+            font-size: medium
+        }
+
+        .a2 {
+            color: #484848;
+            font-family: arial;
+            font-size: medium
+        }
+
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          margin-top: 20px;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="~/Images/Logo.png" alt="Logotipo" width="85" height="85" />
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="a" style="padding-left:10px"> Desafio FrontEnd</a>
+        </div>
+    </header>
+    <div id="main">
+        <article>
+            <p><h1 style="padding-top: 5px; padding-left: 5px; color: #484848; font-family: arial; font-size: large">Métricas</h1></p>
+            <div id="myChart">
+
+            </div>
+            <div>
+                <table style="width:100%;" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Demanda</th>
+                            <th>Capacidade</th>
+                            <th>Atendimento Planejado</th>
+                            <th>Atendimento Realizado</th>
+                            <th>Desvio</th>
+                        </tr>                       
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </article>
+        <nav>
+            <p>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="a2">Métrica 1</a>
+            </p>
+            <p>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="a2">Métrica 2</a>
+            </p>
+            <p>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="a2">Métrica 3</a>
+            </p>
+            <p>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="a2">Métrica 4</a>
+            </p>
+        </nav>
+    </div>
+    <footer>
+    </footer>
+</body>
+</html>
+
