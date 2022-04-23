@@ -1,5 +1,9 @@
 # frontend-flexbox-gchart
 
+<p align="center">
+	<span>English</span> | <a href="https://github.com/samlatavares/frontend-flexbox-gchart/blob/master/translations/pt-br/README.md">Português</a>
+</p>
+
 ## What is this project?
 
 Project made with C#, HTML, Javascript and CSS. There is a simple example of a page using Flexbox. There are also a gchart example.
