@@ -11,11 +11,11 @@
 - Javascript
 - CSS
 - Flexbox
-- Gchart
+- GChart
 - MVC
 
 ## O que é esse projeto?
-O projeto contém um exemplo de ágina utilizando Flexbox e exemplo de utilização do GChart. Os dados exibidos no gráfico são gerados aleatoriamente.
+O projeto contém um exemplo de página utilizando Flexbox, contendo também um exemplo de utilização do GChart. Os dados exibidos no gráfico são gerados aleatoriamente.
 
 ## Como executar o projeto?
 Por se tratar de uma aplicação .NET Core, você precisará:
@@ -25,3 +25,6 @@ Por se tratar de uma aplicação .NET Core, você precisará:
 ## Observações
 - A view "Atendimento" contém todo o código HTML/CSS além dos métodos Javascript criados para desenhar o gráfico GChart e preencher os dados do Grid.
 - Tanto o gráfico quanto o grid são preenchidos através dos dados provenientes de um método do Controller que gera 10 itens aleatórios.
+
+## Obrigada!
+- Obrigada por verificar este repositório!
