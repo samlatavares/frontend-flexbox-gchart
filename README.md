@@ -4,6 +4,8 @@
 	<span>English</span> | <a href="https://github.com/samlatavares/frontend-flexbox-gchart/blob/master/translations/pt-br/README.md">Português</a>
 </p>
 
+<img id="image" src="images/main_page.jpg" alt="Screenshot of the page."></img>
+
 ## Used Tools
 - .NET Core
 - C#
