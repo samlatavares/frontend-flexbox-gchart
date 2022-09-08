@@ -26,7 +26,7 @@ This project was made as a .NET Core application, so you will need:
 
 ## Notes
 - The view "Atendimento" contains all HTML/CSS code and also have Javascript methods that were made to draw the gchart and fill a grid.
-- Both with data that came from a controller method. This method generate 10 random items.
+- Both with data that came from a controller method. This method generates 10 random items.
 
 ## Thank you!
-- Thank you for check this repository!
+- Thank you for checking this repository!
